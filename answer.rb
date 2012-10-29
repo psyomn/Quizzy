@@ -1,11 +1,11 @@
 class Answer
 
-  attr_reader   :id 
+  attr_accessor :id 
   attr_accessor :text
 
   def initialize(id,answer) 
     @id = id 
-    @answer = answer 
+    @text = answer 
   end 
 
 end 
