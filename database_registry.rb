@@ -22,6 +22,16 @@ class DatabaseRegistry
     @database_handle.execute(sql)
   end 
 
+  # For prepared statements. Enter the sql along with an array that holds
+  # parameters.
+  def execute_prepared(sql,params_arr)
+    prepared_statement = @database_handle.prepare(sql)
+    params_arr.each_with_index do |param,index|
+      prepared_statement.bind_param(index+1,param)
+    end 
+    prepared_statement.execute
+  end
+
   def table_exists?(name)
     if 1 == @database_handle.execute(@@table_exists_sql, "table", name)
       true
