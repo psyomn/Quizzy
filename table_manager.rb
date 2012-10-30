@@ -17,12 +17,14 @@ class TableManager
       table_version = 0
     else 
       versions = DatabaseRegistry
+        .instance
         .execute(@@get_schema_version_sql)
       versions.flatten!
       table_version = versions.max + 1
     end 
 
     if -1 == table_version 
+      $stderr.puts "Error in table manager: something horrible happened" 
       exit
     end
     

@@ -33,7 +33,8 @@ class DatabaseRegistry
   end
 
   def table_exists?(name)
-    if 1 == @database_handle.execute(@@table_exists_sql, "table", name)
+    val = @database_handle.execute(@@table_exists_sql, "table", name) 
+    if 1 == val.flatten[0]
       return true
     else
       return false
