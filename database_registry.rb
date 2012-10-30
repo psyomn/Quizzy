@@ -34,9 +34,9 @@ class DatabaseRegistry
 
   def table_exists?(name)
     if 1 == @database_handle.execute(@@table_exists_sql, "table", name)
-      true
+      return true
     else
-      false
+      return false
     end 
   end
 
