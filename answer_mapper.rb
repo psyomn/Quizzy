@@ -1,4 +1,5 @@
 require_relative 'answer_tdg.rb'
+require_relative 'answer.rb'
 
 #Author::Simon Symeonidis
 class AnswerMapper
@@ -22,13 +23,19 @@ class AnswerMapper
   end 
 
   def self.find(id)
-    AnswerTDG
-      .find(id)
+    rs = AnswerTDG.find(id)
+    Answer.new(rs[0],rs[1])
   end 
 
   def self.find_all
-    AnswerTDG
-      .find_all
+    ret = Array.new
+    rs_arr = AnswerTDG.find_all
+
+    rs_arr.each do |rs|
+      ret.push Answer.new(rs[0],rs[1])
+    end 
+
+    ret
   end 
 
 end 

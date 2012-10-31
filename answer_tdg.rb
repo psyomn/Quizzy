@@ -42,7 +42,7 @@ class AnswerTDG
   def self.find_all
     DatabaseRegistry
       .instance
-      .execute(@@find_all) 
+      .execute(@@find_all_sql) 
   end
 
 end 

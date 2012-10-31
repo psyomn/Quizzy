@@ -12,6 +12,7 @@ class CommandLineInterface
       case cmd 
 
       when "quiz"
+        make_quiz
       
       when "insert"
         insert_question
@@ -40,5 +41,8 @@ private
     answer_str   = $stdin.gets.strip
     InsertQuestionCommand.new([question_str,answer_str]).execute
   end 
+
+  def make_quiz
+  end
 
 end 
