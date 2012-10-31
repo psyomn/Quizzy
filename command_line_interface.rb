@@ -8,6 +8,7 @@ class CommandLineInterface
     cmd = "default" 
 
     while cmd != "quit"
+      print "quiz::"
       cmd = $stdin.gets.strip
       case cmd 
 
