@@ -20,7 +20,7 @@ class InsertQuestionCommand < Command
      answer   = @params[1] 
 
      a = Answer.new(nil,answer)
-     q = Question.new(nil,question)
+     q = Question.new(nil,question,nil)
      AnswerMapper.insert(a)
      q.correct_answer_id = a.id
      QuestionMapper.insert(q)
