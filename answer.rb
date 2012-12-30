@@ -8,5 +8,9 @@ class Answer
     @text = answer 
   end 
 
+  def to_s
+    @text
+  end
+
 end 
 

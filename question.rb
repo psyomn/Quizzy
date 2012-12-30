@@ -12,5 +12,9 @@ class Question
     @correct_answer_id = correct_answer_id
   end 
 
+  def to_s
+    @text
+  end
+
 end 
 
